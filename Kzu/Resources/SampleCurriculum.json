@@ -1,0 +1,113 @@
+{
+  "unitId": "ckla-k-phonics-01",
+  "standard": "CCSS.ELA-LITERACY.RF.K.2",
+  "gradeRange": [0, 2],
+  "subject": "literacy",
+  "title": "Letter Sounds: A–F",
+  "description": "Discover the sounds that letters make. Each letter has its own special voice!",
+  "lessons": [
+    {
+      "lessonId": "ls-01",
+      "type": "phonics_drill",
+      "content": {
+        "prompt": "What sound does the letter A make?",
+        "instruction": "Listen carefully and tap the correct sound.",
+        "options": ["ah", "buh", "kuh"],
+        "correctIndex": 0,
+        "mediaAsset": "letter_a_animation",
+        "audioAsset": "phonics_a_sound"
+      }
+    },
+    {
+      "lessonId": "ls-02",
+      "type": "phonics_drill",
+      "content": {
+        "prompt": "What sound does the letter B make?",
+        "instruction": "Feel the sound buzz on your lips!",
+        "options": ["ah", "buh", "duh"],
+        "correctIndex": 1,
+        "mediaAsset": "letter_b_animation",
+        "audioAsset": "phonics_b_sound"
+      }
+    },
+    {
+      "lessonId": "ls-03",
+      "type": "phonics_drill",
+      "content": {
+        "prompt": "What sound does the letter C make?",
+        "instruction": "This letter sounds like a cat purring.",
+        "options": ["kuh", "suh", "tuh"],
+        "correctIndex": 0,
+        "mediaAsset": "letter_c_animation",
+        "audioAsset": "phonics_c_sound"
+      }
+    },
+    {
+      "lessonId": "ls-04",
+      "type": "phonics_drill",
+      "content": {
+        "prompt": "What sound does the letter D make?",
+        "instruction": "Tap your tongue behind your teeth.",
+        "options": ["buh", "guh", "duh"],
+        "correctIndex": 2,
+        "mediaAsset": "letter_d_animation",
+        "audioAsset": "phonics_d_sound"
+      }
+    },
+    {
+      "lessonId": "ls-05",
+      "type": "phonics_drill",
+      "content": {
+        "prompt": "What sound does the letter E make?",
+        "instruction": "Open wide and say it!",
+        "options": ["eh", "ih", "oh"],
+        "correctIndex": 0,
+        "mediaAsset": "letter_e_animation",
+        "audioAsset": "phonics_e_sound"
+      }
+    },
+    {
+      "lessonId": "ls-06",
+      "type": "phonics_drill",
+      "content": {
+        "prompt": "What sound does the letter F make?",
+        "instruction": "Blow gently—like a breeze!",
+        "options": ["vuh", "fuh", "wuh"],
+        "correctIndex": 1,
+        "mediaAsset": "letter_f_animation",
+        "audioAsset": "phonics_f_sound"
+      }
+    },
+    {
+      "lessonId": "ls-07",
+      "type": "number_sense",
+      "content": {
+        "prompt": "How many apples do you see?",
+        "instruction": "Count each apple carefully.",
+        "options": ["3", "4", "5"],
+        "correctIndex": 1,
+        "mediaAsset": "counting_apples_4"
+      }
+    },
+    {
+      "lessonId": "ls-08",
+      "type": "number_sense",
+      "content": {
+        "prompt": "Which number comes after 7?",
+        "instruction": "Think about counting up!",
+        "options": ["6", "8", "9"],
+        "correctIndex": 1,
+        "mediaAsset": "number_line_animation"
+      }
+    }
+  ],
+  "explorerContent": {
+    "type": "pattern_game",
+    "title": "Pattern Detective",
+    "instruction": "Can you find what comes next in the pattern?",
+    "payload": {
+      "sequence": [2, 4, 6, 8],
+      "nextExpected": 10
+    }
+  }
+}
