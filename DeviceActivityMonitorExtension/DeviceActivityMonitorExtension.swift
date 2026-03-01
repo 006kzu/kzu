@@ -19,7 +19,7 @@ import Foundation
 class KzuDeviceActivityMonitor: DeviceActivityMonitor {
 
     private let store = ManagedSettingsStore()
-    private let sharedDefaults = UserDefaults(suiteName: "group.com.kzu.shared")
+    private let sharedDefaults = UserDefaults(suiteName: "group.com.006kzu.shared")
 
     // MARK: - Interval Lifecycle
 

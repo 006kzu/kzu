@@ -48,7 +48,7 @@ In the [Apple Developer Portal](https://developer.apple.com/account/resources/id
 ### 5. Configure App Group
 
 In Xcode, ensure all 3 targets have:
-- **App Groups** capability with `group.com.kzu.shared`
+- **App Groups** capability with `group.com.006kzu.shared`
 
 This is already set in the `.entitlements` files, but Xcode needs the capability registered in the portal.
 

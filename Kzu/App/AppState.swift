@@ -28,7 +28,7 @@ enum KzuConstants {
     static let learningBlockDuration: TimeInterval = 25 * 60  // 25 minutes
     static let gameHubDuration: TimeInterval = 5 * 60          // 5 minutes
     static let backgroundGracePeriod: TimeInterval = 10        // 10 seconds
-    static let appGroupIdentifier = "group.com.kzu.shared"
+    static let appGroupIdentifier = "group.com.006kzu.shared"
 }
 
 // MARK: - App State Manager

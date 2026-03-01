@@ -79,7 +79,7 @@ targets:
     settings:
       base:
         INFOPLIST_FILE: DeviceActivityMonitorExtension/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.kzu.app.DeviceActivityMonitor
+        PRODUCT_BUNDLE_IDENTIFIER: com.kzu.app.device-activity-monitor
         CODE_SIGN_ENTITLEMENTS: DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements
         SKIP_INSTALL: true
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
@@ -93,7 +93,7 @@ targets:
     settings:
       base:
         INFOPLIST_FILE: ShieldConfigurationExtension/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.kzu.app.ShieldConfiguration
+        PRODUCT_BUNDLE_IDENTIFIER: com.kzu.app.shield-configuration
         CODE_SIGN_ENTITLEMENTS: ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements
         SKIP_INSTALL: true
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
