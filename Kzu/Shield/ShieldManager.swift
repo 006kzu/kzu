@@ -19,9 +19,10 @@ final class ShieldManager {
 
     // MARK: - Properties
 
-    /// The managed settings store for the main app target.
-    /// Using the default store so it persists system-wide.
-    private let store = ManagedSettingsStore()
+    /// The managed settings store — uses a NAMED store so the main app and
+    /// DeviceActivityMonitor extension share the same underlying store.
+    /// (Default/unnamed stores are per-target and NOT shared.)
+    private let store = ManagedSettingsStore(named: .init("kzu.shields"))
 
     /// Cached selection from the FamilyActivityPicker
     private var currentSelection: FamilyActivitySelection?
@@ -53,10 +54,20 @@ final class ShieldManager {
     ///   `FamilyActivityPicker` configuration. If nil, uses the cached selection.
     /// - Throws: If no selection is available.
     func applyShields(for selection: FamilyActivitySelection? = nil) throws {
-        let activeSelection = selection ?? currentSelection
+        var activeSelection = selection ?? currentSelection
+
+        // Force reload from defaults to ensure we have the latest selection
+        if selection == nil,
+           let data = sharedDefaults?.data(forKey: "familyActivitySelection"),
+           let savedSelection = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
+            activeSelection = savedSelection
+        }
 
         guard let activeSelection else {
-            throw ShieldError.noAppsSelected
+            // If no apps are selected, we just don't apply any shields
+            // but we still mark the Focus Mode as "active" in the app state.
+            sharedDefaults?.set(true, forKey: "shieldsActive")
+            return
         }
 
         // Cache the selection for future use and extension access
@@ -64,6 +75,9 @@ final class ShieldManager {
         if let data = try? JSONEncoder().encode(activeSelection) {
             sharedDefaults?.set(data, forKey: "familyActivitySelection")
         }
+
+        // Clear session ended flag — new session starting
+        sharedDefaults?.set(false, forKey: "sessionEnded")
 
         // Apply shields to individual apps
         store.shield.applications = activeSelection.applicationTokens.isEmpty
@@ -89,11 +103,19 @@ final class ShieldManager {
     /// Removes all shields, granting full access to previously blocked apps.
     /// Call this when the `LEARNING_BLOCK` timer completes successfully.
     func clearShields() {
+        // Clear individual shield properties
         store.shield.applications = nil
         store.shield.applicationCategories = nil
         store.shield.webDomains = nil
 
+        // Full reset of all managed settings to ensure nothing persists
+        store.clearAllSettings()
+
+        // Signal the extension to stop re-applying shields
+        sharedDefaults?.set(true, forKey: "sessionEnded")
         sharedDefaults?.set(false, forKey: "shieldsActive")
+
+        print("✅ Kzu: Shields cleared — all apps unlocked")
     }
 
     // MARK: - Update Selection
@@ -123,14 +145,11 @@ final class ShieldManager {
 // MARK: - Shield Error
 
 enum ShieldError: LocalizedError {
-    case noAppsSelected
     case authorizationDenied
     case storeUnavailable
 
     var errorDescription: String? {
         switch self {
-        case .noAppsSelected:
-            return "No distraction apps have been selected. Please ask a parent to configure the app list."
         case .authorizationDenied:
             return "Screen Time permission was not granted. Kzu needs this to protect your focus."
         case .storeUnavailable:

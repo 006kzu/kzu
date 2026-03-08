@@ -2,6 +2,7 @@
 // Kzu — Base SpriteKit scene with 5-minute lifecycle and graceful wind-down
 
 import SpriteKit
+import SwiftUI
 
 // MARK: - Base Game Scene
 

@@ -8,6 +8,14 @@ import Foundation
 enum Subject: String, Codable, CaseIterable {
     case literacy
     case math
+    case visionary   // AI/Robotics future-tech lessons
+}
+
+// MARK: - Content Mode
+
+enum ContentMode {
+    case standard    // TEKSAdapter → Texas Gateway
+    case visionary   // InnovationAdapter → local JSON
 }
 
 // MARK: - Grade Band
@@ -17,19 +25,46 @@ enum GradeBand: String, Codable {
     case exploration   // 3-8: Chapter Journeys
 }
 
+// MARK: - Visionary Theme
+
+/// Sub-theme for Visionary (AI/Robotics) lessons.
+enum VisionaryTheme: String, Codable {
+    case ai        = "ai"
+    case robotics  = "robotics"
+    case data      = "data"
+    case ethics    = "ethics"
+
+    var label: String {
+        switch self {
+        case .ai:       return "🧠 Artificial Intelligence"
+        case .robotics: return "🤖 Robotics"
+        case .data:     return "📊 Data Science"
+        case .ethics:   return "⚖️ AI Ethics"
+        }
+    }
+
+    var teksArea: String {
+        "TEKS §126 – Technology Applications"
+    }
+}
+
 // MARK: - Curriculum Unit
 
 /// Top-level container for a unit of curriculum.
 /// A unit contains multiple lessons and optional explorer content.
 struct CurriculumUnit: Codable, Identifiable {
     let unitId: String
-    let standard: String            // e.g. "CCSS.ELA-LITERACY.RF.K.2"
-    let gradeRange: [Int]           // e.g. [0, 2] for K-2
+    let standard: String            // e.g. "TEKS §126.39(b)(1)(B)" or CCSS
+    let gradeRange: [Int]
     let subject: Subject
     let title: String
     let description: String
     let lessons: [Lesson]
     let explorerContent: ExplorerContent?
+
+    // Visionary-only fields (nil for standard content)
+    let visionaryTheme: VisionaryTheme?
+    let teksStandardTitle: String?  // human-readable TEKS standard description
 
     var id: String { unitId }
 
@@ -37,6 +72,8 @@ struct CurriculumUnit: Codable, Identifiable {
         guard let maxGrade = gradeRange.last else { return .foundational }
         return maxGrade <= 2 ? .foundational : .exploration
     }
+
+    var isVisionary: Bool { subject == .visionary }
 }
 
 // MARK: - Lesson
@@ -57,6 +94,8 @@ enum LessonType: String, Codable {
     case letterTracing      = "letter_tracing"
     case numberSense        = "number_sense"
     case countingExercise   = "counting_exercise"
+    case matching           = "matching"
+    case visualAssociation  = "visual_association"
 
     // 3-8 Deep Exploration
     case readingPassage     = "reading_passage"
@@ -93,6 +132,19 @@ struct LessonContent: Codable {
     let expression: String?       // e.g. "3 + 4 = ?"
     let numericAnswer: Double?
     let tolerance: Double?        // For approximate answers
+
+    // Early Ed specific
+    let matchingPairs: [MatchingPair]?
+    let targetObject: String?     // e.g. "duck", "toothbrush"
+}
+
+// MARK: - Matching Pair
+
+struct MatchingPair: Codable, Identifiable {
+    let left: String
+    let right: String
+    
+    var id: String { left + right }
 }
 
 // MARK: - Comprehension Question

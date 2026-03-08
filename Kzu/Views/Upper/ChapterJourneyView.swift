@@ -34,6 +34,8 @@ struct ChapterJourneyView: View {
                 mathProblemView
             case .conceptualQuestion:
                 conceptualQuestionView
+            case .matching, .visualAssociation:
+                multipleChoiceView
             default:
                 multipleChoiceView
             }
@@ -162,6 +164,11 @@ struct ChapterJourneyView: View {
 
             GlassCard {
                 VStack(spacing: 16) {
+                    // Media visual for counting/image questions
+                    if let mediaAsset = lesson.content.mediaAsset {
+                        mediaContent(for: mediaAsset)
+                    }
+
                     if let expression = lesson.content.expression {
                         Text(expression)
                             .font(.system(size: 36, weight: .light, design: .serif))
@@ -219,6 +226,13 @@ struct ChapterJourneyView: View {
                 Text(instruction)
                     .font(KzuTypography.journeyCaption)
                     .foregroundStyle(Color.kzuSoftNavy)
+            }
+
+            // Media visual for counting/image questions
+            if let mediaAsset = lesson.content.mediaAsset {
+                GlassCard {
+                    mediaContent(for: mediaAsset)
+                }
             }
 
             Text(lesson.content.prompt)
@@ -359,6 +373,8 @@ struct ChapterJourneyView: View {
         case .vocabularyBuilder:  return "textformat.abc"
         case .mathProblem:        return "function"
         case .conceptualQuestion: return "lightbulb"
+        case .matching:           return "point.right.filled"
+        case .visualAssociation:  return "eye"
         default:                  return "questionmark.circle"
         }
     }
@@ -369,6 +385,8 @@ struct ChapterJourneyView: View {
         case .vocabularyBuilder:  return "Vocabulary"
         case .mathProblem:        return "Mathematics"
         case .conceptualQuestion: return "Deep Thinking"
+        case .matching:           return "Matching"
+        case .visualAssociation:  return "Visual Task"
         default:                  return "Lesson"
         }
     }
@@ -427,5 +445,68 @@ struct JourneyOptionButton: View {
             .shadow(color: .black.opacity(isSelected ? 0.08 : 0.03), radius: 4, y: 2)
         }
         .buttonStyle(.plain)
+    }
+}
+
+// MARK: - Media Content Helper
+
+extension ChapterJourneyView {
+    @ViewBuilder
+    func mediaContent(for assetName: String) -> some View {
+        if assetName.hasPrefix("counting_") {
+            countingVisual(for: assetName)
+        } else if assetName.hasPrefix("letter_") {
+            let parts = assetName.split(separator: "_")
+            let letter = parts.count >= 2 ? String(parts[1]).uppercased() : "?"
+            Text(letter)
+                .font(.system(size: 64, weight: .bold, design: .rounded))
+                .foregroundStyle(Color.kzuDeepNavy)
+        } else if assetName.hasPrefix("number_line") {
+            HStack(spacing: 8) {
+                ForEach(1...10, id: \.self) { n in
+                    Text("\(n)")
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color.kzuDeepNavy)
+                        .frame(width: 26, height: 26)
+                        .background(
+                            Circle()
+                                .fill(Color.kzuFlowBlue.opacity(n == 8 ? 0.3 : 0.1))
+                        )
+                }
+            }
+            .padding(.vertical, 8)
+        } else {
+            Text("📚")
+                .font(.system(size: 48))
+        }
+    }
+
+    func countingVisual(for assetName: String) -> some View {
+        let parts = assetName.split(separator: "_")
+        let count = parts.last.flatMap { Int($0) } ?? 3
+        let itemName = parts.count >= 3 ? String(parts[1]) : "objects"
+
+        let emoji: String = {
+            switch itemName {
+            case "apples": return "🍎"
+            case "stars": return "⭐"
+            case "hearts": return "❤️"
+            case "fish": return "🐟"
+            case "balls": return "⚽"
+            case "flowers": return "🌸"
+            case "birds": return "🐦"
+            case "cats": return "🐱"
+            case "dogs": return "🐶"
+            default: return "🔵"
+            }
+        }()
+
+        return LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: min(count, 5)), spacing: 12) {
+            ForEach(0..<count, id: \.self) { _ in
+                Text(emoji)
+                    .font(.system(size: 40))
+            }
+        }
+        .padding()
     }
 }

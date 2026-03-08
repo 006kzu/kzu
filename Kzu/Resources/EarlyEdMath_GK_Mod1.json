@@ -1,0 +1,221 @@
+[
+    {
+        "unitId": "gk-mod1",
+        "standard": "Texas Essential Knowledge and Skills (TEKS)",
+        "gradeRange": [
+            0
+        ],
+        "subject": "math",
+        "title": "Numbers to 10",
+        "description": "Developing an understanding of attributes, classification, and numbers 0-10.",
+        "lessons": [
+            {
+                "lessonId": "gk-mod1-L1",
+                "type": "matching",
+                "content": {
+                    "prompt": "Find animals that are exactly the same. Draw a line connecting the animals that are exactly the same.",
+                    "instruction": "Find animals that look like each other but are not exactly the same. Draw a line connecting them.",
+                    "matchingPairs": [
+                        {
+                            "left": "animal_a_exact",
+                            "right": "animal_a_exact"
+                        },
+                        {
+                            "left": "animal_b_similar",
+                            "right": "animal_b_variant"
+                        }
+                    ]
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L2",
+                "type": "matching",
+                "content": {
+                    "prompt": "Draw a line between two objects that are not exactly the same.",
+                    "instruction": "Use your words. 'These are the same, but this one...'",
+                    "matchingPairs": [
+                        {
+                            "left": "object_a",
+                            "right": "object_a_variant"
+                        }
+                    ]
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L3-P1",
+                "type": "matching",
+                "content": {
+                    "prompt": "Draw a line between the objects that have the same pattern.",
+                    "instruction": "Talk with a neighbor about the objects that match.",
+                    "matchingPairs": [
+                        {
+                            "left": "pattern_a",
+                            "right": "pattern_a"
+                        },
+                        {
+                            "left": "pattern_b",
+                            "right": "pattern_b"
+                        }
+                    ]
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L3-P2",
+                "type": "visual_association",
+                "content": {
+                    "prompt": "Circle the object that would be used together with the object on the left.",
+                    "instruction": "Identify the item that is typically paired with the target object.",
+                    "targetObject": "left_object",
+                    "options": [
+                        "companion_item",
+                        "unrelated_item_1",
+                        "unrelated_item_2"
+                    ],
+                    "correctIndex": 0
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L8",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Count the objects. Circle the correct number.",
+                    "instruction": "Identify the numeral that matches the count of the displayed group.",
+                    "targetObject": "set_of_objects",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "correctIndex": 0
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L9",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Count the dots, and circle the correct number.",
+                    "instruction": "Color the same number of dots on the right as the gray ones on the left to show the hidden partners.",
+                    "targetObject": "dots",
+                    "options": [
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "correctIndex": 0
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L10",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Count the objects. Circle the total number.",
+                    "instruction": "Color to see the hidden partners (e.g., color 1 circle, color 2 stars).",
+                    "targetObject": "mixed_objects",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "correctIndex": 0
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L11",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "How many? Circle the correct number.",
+                    "instruction": "Recognize the group of objects and select the corresponding number.",
+                    "targetObject": "organized_dots",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "correctIndex": 0
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L13",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Circle the number that tells how many.",
+                    "instruction": "How many elephants are in the trees?",
+                    "targetObject": "elephants_in_trees",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "3"
+                    ],
+                    "correctIndex": 0
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L16",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Count and write how many. Circle a group of four of each fruit.",
+                    "instruction": "Identify and group specific quantities within a larger set.",
+                    "targetObject": "fruit",
+                    "options": [
+                        "4",
+                        "5"
+                    ],
+                    "correctIndex": 0
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L22",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Count and circle how many. Color 5.",
+                    "instruction": "Count the total and identify a subset of 5.",
+                    "targetObject": "circles",
+                    "options": [
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+                    "correctIndex": 3
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L24",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Count and circle how many. Color 5.",
+                    "instruction": "Determine the total count of the geometric objects.",
+                    "targetObject": "geometric_shapes",
+                    "options": [
+                        "7",
+                        "8",
+                        "9"
+                    ],
+                    "correctIndex": 2
+                }
+            },
+            {
+                "lessonId": "gk-mod1-L26",
+                "type": "counting_exercise",
+                "content": {
+                    "prompt": "Count and circle how many. Color 5.",
+                    "instruction": "Identify the count of 10 in the configuration.",
+                    "targetObject": "objects_in_array",
+                    "options": [
+                        "8",
+                        "9",
+                        "10"
+                    ],
+                    "correctIndex": 2
+                }
+            }
+        ]
+    }
+]

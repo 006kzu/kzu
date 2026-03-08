@@ -178,14 +178,53 @@ struct ExplorerModeView: View {
                         .gentlePulse()
                 }
 
-                TextField("Next number...", text: $patternAnswer)
-                    .font(KzuTypography.foundationalBody)
-                    .keyboardType(.numberPad)
-                    .padding()
-                    .background(Color.kzuWarmWhite)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                // Multiple choice options
+                let correctAnswer = payload.nextExpected ?? 0
+                let choices = generatePatternChoices(correct: correctAnswer)
+
+                VStack(spacing: 10) {
+                    ForEach(Array(choices.enumerated()), id: \.offset) { index, choice in
+                        Button {
+                            patternAnswer = "\(choice)"
+                        } label: {
+                            Text("\(choice)")
+                                .font(KzuTypography.foundationalBody)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 16)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .fill(patternAnswer == "\(choice)"
+                                              ? (choice == correctAnswer ? Color.kzuSuccess.opacity(0.2) : Color.kzuError.opacity(0.2))
+                                              : Color.kzuSurface)
+                                )
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(patternAnswer == "\(choice)"
+                                                ? (choice == correctAnswer ? Color.kzuSuccess : Color.kzuError)
+                                                : Color.clear, lineWidth: 2)
+                                )
+                                .foregroundStyle(Color.kzuDeepNavy)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(.top, 8)
             }
         }
+    }
+
+    /// Generates 4 choices including the correct answer, shuffled
+    private func generatePatternChoices(correct: Int) -> [Int] {
+        var choices = Set<Int>()
+        choices.insert(correct)
+        // Add plausible distractors
+        let offsets = [-2, -1, 1, 2, 3, -3]
+        for offset in offsets {
+            if choices.count >= 4 { break }
+            let distractor = correct + offset
+            if distractor >= 0 { choices.insert(distractor) }
+        }
+        return Array(choices).sorted()
     }
 
     // MARK: - Story Starter

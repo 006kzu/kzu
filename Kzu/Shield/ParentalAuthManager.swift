@@ -20,8 +20,27 @@ final class ParentalAuthManager {
 
     // MARK: Properties
     var authStatus: KzuAuthStatus = .notDetermined
+    
     var selectedApps = FamilyActivitySelection()
+    
     var isShowingPicker = false
+    
+    init() {
+        if let data = UserDefaults(suiteName: KzuConstants.appGroupIdentifier)?.data(forKey: "familyActivitySelection"),
+           let selection = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
+            self.selectedApps = selection
+        } else {
+            self.selectedApps = FamilyActivitySelection()
+        }
+    }
+
+    // MARK: - Persistence
+
+    func saveSelection() {
+        if let data = try? JSONEncoder().encode(selectedApps) {
+            UserDefaults(suiteName: KzuConstants.appGroupIdentifier)?.set(data, forKey: "familyActivitySelection")
+        }
+    }
 
     // MARK: - Request Authorization
 
@@ -29,10 +48,14 @@ final class ParentalAuthManager {
     /// This triggers the system Screen Time authentication dialog.
     @MainActor
     func requestAuthorization() async {
+        print("🔐 Kzu: Requesting FamilyControls authorization...")
         do {
             try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
             authStatus = .approved
+            print("✅ Kzu: Authorization approved")
         } catch {
+            print("❌ Kzu: Authorization failed: \(error.localizedDescription)")
+            print("❌ Kzu: Error details: \(error)")
             authStatus = .denied
         }
     }
@@ -41,7 +64,9 @@ final class ParentalAuthManager {
 
     @MainActor
     func checkAuthorizationStatus() {
-        switch AuthorizationCenter.shared.authorizationStatus {
+        let status = AuthorizationCenter.shared.authorizationStatus
+        print("🔐 Kzu: Current auth status: \(status)")
+        switch status {
         case .notDetermined:
             authStatus = .notDetermined
         case .approved:
@@ -152,6 +177,8 @@ struct AuthorizationGateView: View {
                         await authManager.requestAuthorization()
                     }
                 }
+
+                skipButton
             }
         }
     }
@@ -206,6 +233,8 @@ struct AuthorizationGateView: View {
                         await authManager.requestAuthorization()
                     }
                 }
+
+                skipButton
             }
         }
     }
@@ -225,7 +254,22 @@ struct AuthorizationGateView: View {
                     .font(KzuTypography.journeyCaption)
                     .foregroundStyle(Color.kzuSoftNavy)
                     .multilineTextAlignment(.center)
+
+                skipButton
             }
         }
+    }
+
+    // MARK: - Skip Button
+
+    private var skipButton: some View {
+        Button {
+            onAuthorized()
+        } label: {
+            Text("Skip for Now")
+                .font(.system(size: 14, weight: .medium, design: .rounded))
+                .foregroundStyle(Color.kzuSoftNavy.opacity(0.5))
+        }
+        .padding(.top, 4)
     }
 }

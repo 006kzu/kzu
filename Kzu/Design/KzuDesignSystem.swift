@@ -23,6 +23,16 @@ extension Color {
     // Surface layers
     static let kzuSurface     = Color(red: 0.94, green: 0.92, blue: 0.87)
     static let kzuCardBg      = Color(red: 0.97, green: 0.95, blue: 0.91)
+
+    // ── Visionary Mode palette ─────────────────────────────────────────────
+    // Dark, electric, future-tech — used when subject == .visionary
+    static let vizBg          = Color(red: 0.06, green: 0.06, blue: 0.10)  // near-black
+    static let vizSurface     = Color(red: 0.11, green: 0.13, blue: 0.20)  // dark card bg
+    static let vizAccent      = Color(red: 0.31, green: 0.78, blue: 0.96)  // electric cyan
+    static let vizAccentGlow  = Color(red: 0.31, green: 0.78, blue: 0.96).opacity(0.25)
+    static let vizText        = Color(red: 0.90, green: 0.92, blue: 0.96)  // soft white
+    static let vizSubtext     = Color(red: 0.55, green: 0.60, blue: 0.72)  // muted blue-grey
+    static let vizGold        = Color(red: 0.94, green: 0.82, blue: 0.30)  // unchanged gold
 }
 
 // MARK: - Typography

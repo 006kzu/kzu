@@ -2,6 +2,7 @@
 // Kzu — Rhythm/music mini-game: tap to the beat
 
 import SpriteKit
+import SwiftUI
 
 // MARK: - Rhythm Flow Scene
 
@@ -116,18 +117,18 @@ class RhythmFlowScene: KzuGameScene {
             SKAction.group([
                 SKAction.scale(to: 1.3, duration: beatInterval * 0.3),
                 SKAction.run {
-                    orb.fillColor = orb.strokeColor?.withAlphaComponent(0.7) ?? .white
+                    orb.fillColor = orb.strokeColor.withAlphaComponent(0.7)
                     orb.childNode(withName: "glow")?.run(
-                        SKAction.fadeAlpha(to: 0.4, duration: beatInterval * 0.3)
+                        SKAction.fadeAlpha(to: 0.4, duration: self.beatInterval * 0.3)
                     )
                 }
             ]),
             SKAction.group([
                 SKAction.scale(to: 1.0, duration: beatInterval * 0.5),
                 SKAction.run {
-                    orb.fillColor = orb.strokeColor?.withAlphaComponent(0.3) ?? .white
+                    orb.fillColor = orb.strokeColor.withAlphaComponent(0.3)
                     orb.childNode(withName: "glow")?.run(
-                        SKAction.fadeAlpha(to: 0.1, duration: beatInterval * 0.5)
+                        SKAction.fadeAlpha(to: 0.1, duration: self.beatInterval * 0.5)
                     )
                 }
             ]),
@@ -154,7 +155,7 @@ class RhythmFlowScene: KzuGameScene {
                 if isActive {
                     // Hit! Satisfying feedback
                     score += 1
-                    showHitEffect(at: orb.position, color: orb.strokeColor ?? .white)
+                    showHitEffect(at: orb.position, color: orb.strokeColor)
                 } else {
                     // Gentle ripple for off-beat taps (no punishment)
                     showRipple(at: orb.position)

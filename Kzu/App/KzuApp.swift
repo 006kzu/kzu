@@ -13,6 +13,7 @@ struct KzuApp: App {
     @State private var authManager = ParentalAuthManager()
     @State private var shieldManager = ShieldManager()
     @State private var contentEngine = ContentDeliveryEngine()
+    @Environment(\.scenePhase) private var scenePhase
 
     // Student profile (set during onboarding)
     @AppStorage("studentGrade") private var studentGrade: Int = 0
@@ -30,15 +31,13 @@ struct KzuApp: App {
             )
             .onAppear {
                 authManager.checkAuthorizationStatus()
+                appState.requestNotificationPermission()
             }
-            .onReceive(
-                NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)
-            ) { _ in
+        }
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            if newPhase == .background {
                 appState.appDidEnterBackground()
-            }
-            .onReceive(
-                NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
-            ) { _ in
+            } else if newPhase == .active {
                 appState.appWillEnterForeground()
                 checkForExtensionMessages()
             }
@@ -78,13 +77,15 @@ struct RootView: View {
 
     @Environment(\.modelContext) private var modelContext
     @State private var showDashboard = false
+    @AppStorage("hasSkippedAuth") private var hasSkippedAuth = false
 
     var body: some View {
         ZStack {
             switch appState.currentPhase {
             case .idle:
-                if authManager.authStatus != .approved {
+                if authManager.authStatus != .approved && !hasSkippedAuth {
                     AuthorizationGateView(authManager: authManager) {
+                        hasSkippedAuth = true
                         if hasCompletedOnboarding {
                             appState.transitionTo(.idle)
                         } else {
@@ -92,7 +93,13 @@ struct RootView: View {
                         }
                     }
                 } else {
-                    idleView
+                    StudentDashboardView(
+                        appState: appState,
+                        contentEngine: contentEngine,
+                        shieldManager: shieldManager,
+                        studentGrade: studentGrade,
+                        onShowParentDashboard: { showDashboard = true }
+                    )
                 }
 
             case .requestingAuth:
@@ -114,95 +121,33 @@ struct RootView: View {
                 LearningBlockView(
                     appState: appState,
                     contentEngine: contentEngine,
-                    grade: studentGrade
+                    grade: studentGrade,
+                    onExit: {
+                        appState.pauseSession()
+                    }
                 )
 
             case .gameHub:
                 GameHubView(
                     appState: appState,
-                    rewardTier: contentEngine.currentRewardTier
+                    rewardTier: contentEngine.currentRewardTier,
+                    onExit: {
+                        appState.pauseSession()
+                    }
                 )
             }
         }
         .animation(.easeInOut(duration: 0.6), value: appState.currentPhase)
+        .onAppear {
+            // Check Screen Time authorization on launch
+            authManager.checkAuthorizationStatus()
+            appState.requestNotificationPermission()
+        }
         .sheet(isPresented: $showDashboard) {
-            ParentalDashboardView()
+            ParentalDashboardView(authManager: authManager)
         }
     }
 
-    // MARK: - Idle View
-
-    private var idleView: some View {
-        ZStack {
-            Color.kzuIvory.ignoresSafeArea()
-
-            VStack(spacing: 32) {
-                Spacer()
-
-                // Branding
-                VStack(spacing: 8) {
-                    Text("Kzu")
-                        .font(.system(size: 52, weight: .bold, design: .rounded))
-                        .foregroundStyle(Color.kzuDeepNavy)
-
-                    Text("Your focus journey awaits")
-                        .font(KzuTypography.journeyCaption)
-                        .foregroundStyle(Color.kzuSoftNavy)
-                }
-
-                // Session count
-                if appState.sessionsCompletedToday > 0 {
-                    HStack(spacing: 6) {
-                        Image(systemName: "flame.fill")
-                            .foregroundStyle(Color.kzuGold)
-                        Text("\(appState.sessionsCompletedToday) sessions today")
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                            .foregroundStyle(Color.kzuSoftNavy)
-                    }
-                }
-
-                Spacer()
-
-                // Begin Flow button
-                NeoSkeuomorphicButton("Begin Your Flow", icon: "play.fill") {
-                    startLearningSession()
-                }
-
-                // Parent dashboard access
-                Button {
-                    showDashboard = true
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "chart.bar.fill")
-                        Text("Parent Dashboard")
-                    }
-                    .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(Color.kzuSoftNavy.opacity(0.5))
-                }
-                .padding(.top, 8)
-                .padding(.bottom, 40)
-            }
-        }
-    }
-
-    // MARK: - Start Session
-
-    private func startLearningSession() {
-        // Load curriculum for the student's grade
-        let subject: Subject = Bool.random() ? .literacy : .math  // Alternate for MVP
-        if let unit = contentEngine.loadUnit(for: studentGrade, subject: subject) {
-            contentEngine.startSession(unit: unit)
-        }
-
-        // Apply shields
-        try? shieldManager.applyShields()
-
-        // Start DeviceActivity monitoring
-        try? KzuActivitySchedule.startLearningBlock()
-
-        // Transition
-        appState.transitionTo(.learningBlock)
-    }
 }
 
 // MARK: - Simple Onboarding View

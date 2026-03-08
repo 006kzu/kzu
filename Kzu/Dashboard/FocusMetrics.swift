@@ -20,6 +20,14 @@ final class FocusSession {
     var subject: String             // "literacy" or "math"
     var gradeLevel: Int
 
+    // ── FQ Telemetry (added for Focus Quotient engine) ──────────────────────
+    /// Weighted Focus Quotient [0.0, 1.0]; display ×100 to parents.
+    var focusQuotient: Double
+    /// Raw count of inactivity triggers (ambientFade/focusCheck/flowFreeze) in session.
+    var inactivityTriggerCount: Int
+    /// Full `SessionTelemetry` serialised as compact JSON — local only, never transmitted.
+    var telemetryJSON: String
+
     init(
         wasCompleted: Bool,
         wasReset: Bool = false,
@@ -29,7 +37,10 @@ final class FocusSession {
         engagementScore: Double,
         rewardTier: RewardTier,
         subject: Subject,
-        gradeLevel: Int
+        gradeLevel: Int,
+        focusQuotient: Double = 0,
+        inactivityTriggerCount: Int = 0,
+        telemetryJSON: String = ""
     ) {
         self.id = UUID()
         self.date = Date()
@@ -42,6 +53,9 @@ final class FocusSession {
         self.rewardTier = rewardTier.rawValue
         self.subject = subject.rawValue
         self.gradeLevel = gradeLevel
+        self.focusQuotient = focusQuotient
+        self.inactivityTriggerCount = inactivityTriggerCount
+        self.telemetryJSON = telemetryJSON
     }
 }
 
@@ -51,18 +65,23 @@ struct FocusMetricsCalculator {
 
     // MARK: - Focus Quotient
 
-    /// FQ = (completed sessions / total sessions) × 100
-    /// Core metric displayed on the Parental Dashboard
+    /// FQ (0–100 for parent display) = average of per-session focusQuotient × 100.
+    /// Falls back to completion-rate if no rich telemetry exists yet.
     static func focusQuotient(sessions: [FocusSession]) -> Double {
         guard !sessions.isEmpty else { return 0 }
+        let sessionsWithFQ = sessions.filter { $0.focusQuotient > 0 }
+        if !sessionsWithFQ.isEmpty {
+            let avg = sessionsWithFQ.map(\.focusQuotient).reduce(0, +) / Double(sessionsWithFQ.count)
+            return avg * 100   // 0–100 for parent display
+        }
+        // Backwards-compat fallback for sessions pre-telemetry
         let completed = sessions.filter(\.wasCompleted).count
         return (Double(completed) / Double(sessions.count)) * 100
     }
 
     // MARK: - Focus Growth (trend over time)
 
-    /// Calculates the 7-day rolling FQ trend to show improvement
-    /// Returns array of (date, FQ) pairs for charting
+    /// 7-day rolling FQ trend using per-session focusQuotient for richer charting.
     static func focusGrowthTrend(sessions: [FocusSession], days: Int = 7) -> [(date: Date, fq: Double)] {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
@@ -71,13 +90,33 @@ struct FocusMetricsCalculator {
             guard let date = calendar.date(byAdding: .day, value: -dayOffset, to: today) else {
                 return nil
             }
-
-            let daySessions = sessions.filter { session in
-                calendar.isDate(session.date, inSameDayAs: date)
-            }
-
+            let daySessions = sessions.filter { calendar.isDate($0.date, inSameDayAs: date) }
             let fq = focusQuotient(sessions: daySessions)
             return (date: date, fq: fq)
+        }
+    }
+
+    /// Returns the raw [0,1] FQ values for the past N days — used by `SessionTelemetryEngine.analyzeTrend()`.
+    static func priorFQs(sessions: [FocusSession], days: Int = 7) -> [Double] {
+        let calendar = Calendar.current
+        let cutoff = calendar.date(byAdding: .day, value: -days, to: Date()) ?? Date()
+        return sessions
+            .filter { $0.date >= cutoff && $0.focusQuotient > 0 }
+            .map(\.focusQuotient)
+    }
+
+    /// Derives a `TrendPhase` from stored sessions for display on the dashboard.
+    static func trendPhase(sessions: [FocusSession]) -> TrendPhase {
+        guard let latest = sessions.sorted(by: { $0.date > $1.date }).first,
+              latest.focusQuotient > 0 else { return .insufficient }
+        let prior = priorFQs(sessions: sessions.filter { $0.id != latest.id })
+        guard prior.count >= 3 else { return .insufficient }
+        let baseline = prior.reduce(0, +) / Double(prior.count)
+        let delta = latest.focusQuotient - baseline
+        switch delta {
+        case let d where d >  0.05: return .upwardGrowth
+        case let d where d < -0.05: return .fatigue
+        default:                    return .steadyState
         }
     }
 

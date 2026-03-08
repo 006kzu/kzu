@@ -1,0 +1,1010 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		036FE8AD88655B44BCBE5E89 /* FocusMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0493F3EA82C445D133F53B /* FocusMetrics.swift */; };
+		05911E278219E3054D0AF640 /* KzuLiveActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917BDA995B45B3D14803D62 /* KzuLiveActivityBundle.swift */; };
+		101EAE5290123697CE9B5FD3 /* PhysicsSandboxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5705EE442CD59088B43480A0 /* PhysicsSandboxScene.swift */; };
+		130B32F20A457D75B523DE01 /* ContentDeliveryEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7CE606A10663060C4242C6 /* ContentDeliveryEngineTests.swift */; };
+		1FFC27DAC9A23722EFB1B806 /* ParentalDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D039B528EBB6BCA6488ABA /* ParentalDashboardView.swift */; };
+		2482785D3E86300C02DEA3AE /* TouchInactivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56A4862133455B7C5E56854 /* TouchInactivityManager.swift */; };
+		28C4569ACDF29827462FC542 /* FoundationalPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A353EC73BD8ECAC7D214 /* FoundationalPathView.swift */; };
+		29B6DD1076D3CCEE3419740D /* FoundationalMatchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368BAC2A153926321F8936CD /* FoundationalMatchingView.swift */; };
+		2E7800E237006A222FB00B53 /* EarlyEdMath_GK_Mod1.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A949F41159D65B9223A702 /* EarlyEdMath_GK_Mod1.json */; };
+		2F2E38CBE350AA51B8B339C3 /* VisionaryLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DEA6471470B0A50B201677 /* VisionaryLearningView.swift */; };
+		32687CB42A8105328DC444C3 /* KzuDesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71ACD77B094F038DEDC187 /* KzuDesignSystem.swift */; };
+		32CE310A2B9F4DF305C81683 /* KzuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBBA60A62716BAB60B7E59 /* KzuApp.swift */; };
+		379711E4F4AA4784B1E06C0B /* KzuLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB86A5AB9394DEC5B26582E5 /* KzuLiveActivityAttributes.swift */; };
+		388559FC4E4919D88C7ADC0B /* RewardTier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340C01C870E6DFAAA982C1A /* RewardTier.swift */; };
+		4ADD762BC0E07F914CF33CBE /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A8260B00266171ED8D097 /* DeviceActivityMonitorExtension.swift */; };
+		4FB3F859C687284D52792615 /* SupabaseContentAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27E9F1BCBED9BEF1CC4560 /* SupabaseContentAdapter.swift */; };
+		53B0B7B53719EA499943417B /* FlowTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB2F640E92FDF5A7B52D9A /* FlowTimerView.swift */; };
+		64F425AA00044C3223293892 /* CurriculumUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15876A2EBA74346C1F6300CD /* CurriculumUnit.swift */; };
+		667CC84C6094734CD4C3E9F3 /* ContentDeliveryEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F015EBFFD28B87ED59BE2B /* ContentDeliveryEngine.swift */; };
+		6BC5648171C8E5697D7EF74F /* FocusMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84B6D6888F2EF1E538F49F1 /* FocusMetricsTests.swift */; };
+		73486624A80BF42A284264CB /* CurriculumOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B419A4F5908A232B5CCBD29D /* CurriculumOrchestrator.swift */; };
+		75739EBECFC0804C8236A5F6 /* ExplorerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C43D9EA2A149BBE1D0F4D /* ExplorerMode.swift */; };
+		7A523A0F52C79F4818443762 /* GameHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30208FE743A71F8E8DC4E2C8 /* GameHubView.swift */; };
+		7FD02771440A6B48E3893E54 /* SampleCurriculum.json in Resources */ = {isa = PBXBuildFile; fileRef = D671685EB87BDDF6BFF6B974 /* SampleCurriculum.json */; };
+		895D5E7F34F7631048C555A6 /* SessionTelemetryEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A23C64E3DBB921BA9ACC9 /* SessionTelemetryEngine.swift */; };
+		9074EAE8B981D9DD37D462BC /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4B84ABBA9B093FFA2118C285 /* DeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		927F6F3461E210790D6F7AEA /* OERProblemBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88E59295D5332BD52C349 /* OERProblemBank.swift */; };
+		93EAC2C78B47F53ED93EE9EF /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3D3E95643380D8873ADBE /* ShieldConfigurationExtension.swift */; };
+		947F0DE847F120A3FFDC9124 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22F9A285F1CC147F4DDF90 /* GameScene.swift */; };
+		9D3EFD485A4731172F4944B6 /* EarlyEdAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9298B66A54C89AE3C5D61A /* EarlyEdAdapter.swift */; };
+		9D72D68470D1510056967D61 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAED42CCD4AA75CC0D6997 /* Transitions.swift */; };
+		9DB494F2202B7F9C2B816E03 /* FocusCheckOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103B306BD57652E40E294168 /* FocusCheckOverlay.swift */; };
+		A4EF6A4FE5374B708EF2A6AB /* InnovationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34166CD90055FDCE136105E3 /* InnovationAdapter.swift */; };
+		A6C2BDE7F5CB12E4DF364BCD /* ChapterJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E045C6F91E624E2307CB6C /* ChapterJourneyView.swift */; };
+		AAE00D08521511A4F2CF1B6E /* SubjectPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B04159A058A30FEF8C733B /* SubjectPathView.swift */; };
+		B3D38E02B758433BA88263E2 /* ParentalAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3827D2FE1558BB30844A74F /* ParentalAuthManager.swift */; };
+		B8F3395C8E1B0206B6116578 /* ZenGardenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B98FC0E97DCD07B9A91173 /* ZenGardenScene.swift */; };
+		BB08A6B88CF0C59F706EFE53 /* KzuLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24873C0D1E904714C0D1230D /* KzuLiveActivityWidget.swift */; };
+		BE207DAEE5B33C8CD91AF18F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15288BD3C1D2719D416C20FF /* Assets.xcassets */; };
+		BE2FE01FBD175E7B92FC5AB6 /* VisionaryLessons.json in Resources */ = {isa = PBXBuildFile; fileRef = B70F99BEE16000302E0BE85C /* VisionaryLessons.json */; };
+		BEA7CE249F419126B2066827 /* StudentDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB5BB7510000476B8843E2 /* StudentDashboardView.swift */; };
+		C331F669E021B2BDFBFD9A37 /* KzuActivitySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58754ACB219AF3D1A7879255 /* KzuActivitySchedule.swift */; };
+		C53D1D4F3F8B2E7ECD0B6151 /* LearningBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CB437C602468D7C37827 /* LearningBlockView.swift */; };
+		CCC22C3C23AD1063AE601B7B /* SampleMathCurriculum.json in Resources */ = {isa = PBXBuildFile; fileRef = 83F24E6044A3D53ADCC189C2 /* SampleMathCurriculum.json */; };
+		CE3DBDB06CF2BE14B14A6C47 /* RhythmFlowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478FC50D61963414AB1C887 /* RhythmFlowScene.swift */; };
+		D7E761AC78D8AFA432A2818A /* FlowFreezeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2183804C49FF759AFFA857 /* FlowFreezeOverlay.swift */; };
+		DC4DA6C27BDCA9161D1D8A43 /* TEKSAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0899FFBF95AE53DCBE78747 /* TEKSAdapter.swift */; };
+		EDB79A0E2C84AA5E822CACA1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BB80CB975CC350460BC16 /* AppState.swift */; };
+		F908B30DF68EA869150C0D28 /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AE430BB2ED703D66A0834A0D /* ShieldConfigurationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FA0BAA417C55FE6C12117029 /* KzuLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB86A5AB9394DEC5B26582E5 /* KzuLiveActivityAttributes.swift */; };
+		FA1F2A24892C252AC0E2A06C /* AppStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481ED117DF99B11A77208241 /* AppStateManagerTests.swift */; };
+		FAB2FBBB5B055DD104847B98 /* ShieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D63CAE59EE732A5549836F /* ShieldManager.swift */; };
+		FB52DF4CAA2B73CF880D6902 /* KzuLiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1C49D5F10900B572D3C7B77D /* KzuLiveActivityExtension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0C4868C7A3376A33930A13D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0D0D4A9A33C6AB49BCE015 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9730C35525B418C24D2303B9;
+			remoteInfo = DeviceActivityMonitorExtension;
+		};
+		BD1C4909FB2853C53C2FC39A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0D0D4A9A33C6AB49BCE015 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD0237A7A8C9A41A59DA440;
+			remoteInfo = KzuLiveActivityExtension;
+		};
+		C5BEC0F330743BAA961BC91D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0D0D4A9A33C6AB49BCE015 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 874931EF30EE6CE792C7A856;
+			remoteInfo = Kzu;
+		};
+		E6A98EEEDA2FEC444659D379 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0D0D4A9A33C6AB49BCE015 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0457D6CB746D25374F50326B;
+			remoteInfo = ShieldConfigurationExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5F3A7D2E177E3DCE749492D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9074EAE8B981D9DD37D462BC /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */,
+				F908B30DF68EA869150C0D28 /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */,
+				FB52DF4CAA2B73CF880D6902 /* KzuLiveActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0478FC50D61963414AB1C887 /* RhythmFlowScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmFlowScene.swift; sourceTree = "<group>"; };
+		0A9298B66A54C89AE3C5D61A /* EarlyEdAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlyEdAdapter.swift; sourceTree = "<group>"; };
+		103B306BD57652E40E294168 /* FocusCheckOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCheckOverlay.swift; sourceTree = "<group>"; };
+		12FC7327F79EA757584AA7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		13F015EBFFD28B87ED59BE2B /* ContentDeliveryEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDeliveryEngine.swift; sourceTree = "<group>"; };
+		15288BD3C1D2719D416C20FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15876A2EBA74346C1F6300CD /* CurriculumUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumUnit.swift; sourceTree = "<group>"; };
+		17AAB9548F9023AAB3B0C090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1A39A0A3B5E05C6219E2A19E /* Kzu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kzu.entitlements; sourceTree = "<group>"; };
+		1C49D5F10900B572D3C7B77D /* KzuLiveActivityExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = KzuLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		21DEA6471470B0A50B201677 /* VisionaryLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionaryLearningView.swift; sourceTree = "<group>"; };
+		22D039B528EBB6BCA6488ABA /* ParentalDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentalDashboardView.swift; sourceTree = "<group>"; };
+		2340C01C870E6DFAAA982C1A /* RewardTier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardTier.swift; sourceTree = "<group>"; };
+		24873C0D1E904714C0D1230D /* KzuLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzuLiveActivityWidget.swift; sourceTree = "<group>"; };
+		27B04159A058A30FEF8C733B /* SubjectPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectPathView.swift; sourceTree = "<group>"; };
+		30208FE743A71F8E8DC4E2C8 /* GameHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHubView.swift; sourceTree = "<group>"; };
+		34166CD90055FDCE136105E3 /* InnovationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnovationAdapter.swift; sourceTree = "<group>"; };
+		368BAC2A153926321F8936CD /* FoundationalMatchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationalMatchingView.swift; sourceTree = "<group>"; };
+		3D22F9A285F1CC147F4DDF90 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		41E045C6F91E624E2307CB6C /* ChapterJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterJourneyView.swift; sourceTree = "<group>"; };
+		481ED117DF99B11A77208241 /* AppStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManagerTests.swift; sourceTree = "<group>"; };
+		48D63CAE59EE732A5549836F /* ShieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldManager.swift; sourceTree = "<group>"; };
+		4B84ABBA9B093FFA2118C285 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		514CE4AA4A27F4D85B72D88E /* ShieldConfigurationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldConfigurationExtension.entitlements; sourceTree = "<group>"; };
+		54B2A353EC73BD8ECAC7D214 /* FoundationalPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationalPathView.swift; sourceTree = "<group>"; };
+		5705EE442CD59088B43480A0 /* PhysicsSandboxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsSandboxScene.swift; sourceTree = "<group>"; };
+		580F3280B2466D418AD002FA /* DeviceActivityMonitorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityMonitorExtension.entitlements; sourceTree = "<group>"; };
+		58754ACB219AF3D1A7879255 /* KzuActivitySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzuActivitySchedule.swift; sourceTree = "<group>"; };
+		5AD88E59295D5332BD52C349 /* OERProblemBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OERProblemBank.swift; sourceTree = "<group>"; };
+		5BF9A9D0068A7C52E3D07EE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7D2183804C49FF759AFFA857 /* FlowFreezeOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowFreezeOverlay.swift; sourceTree = "<group>"; };
+		7E9E2E4B1026572BC677A3E3 /* KzuLiveActivityExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KzuLiveActivityExtension.entitlements; sourceTree = "<group>"; };
+		7F6A8260B00266171ED8D097 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
+		80F2CB437C602468D7C37827 /* LearningBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningBlockView.swift; sourceTree = "<group>"; };
+		83F24E6044A3D53ADCC189C2 /* SampleMathCurriculum.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleMathCurriculum.json; sourceTree = "<group>"; };
+		87B98FC0E97DCD07B9A91173 /* ZenGardenScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardenScene.swift; sourceTree = "<group>"; };
+		8E27E9F1BCBED9BEF1CC4560 /* SupabaseContentAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseContentAdapter.swift; sourceTree = "<group>"; };
+		A3A3D3E95643380D8873ADBE /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
+		A5FBBA60A62716BAB60B7E59 /* KzuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzuApp.swift; sourceTree = "<group>"; };
+		A84B6D6888F2EF1E538F49F1 /* FocusMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusMetricsTests.swift; sourceTree = "<group>"; };
+		AD9BB80CB975CC350460BC16 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		AE430BB2ED703D66A0834A0D /* ShieldConfigurationExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShieldConfigurationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0493F3EA82C445D133F53B /* FocusMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusMetrics.swift; sourceTree = "<group>"; };
+		B419A4F5908A232B5CCBD29D /* CurriculumOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumOrchestrator.swift; sourceTree = "<group>"; };
+		B70F99BEE16000302E0BE85C /* VisionaryLessons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VisionaryLessons.json; sourceTree = "<group>"; };
+		B917BDA995B45B3D14803D62 /* KzuLiveActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzuLiveActivityBundle.swift; sourceTree = "<group>"; };
+		B93E0BE9F7394177B5736FCB /* Kzu.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Kzu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDB5BB7510000476B8843E2 /* StudentDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDashboardView.swift; sourceTree = "<group>"; };
+		C3FAED42CCD4AA75CC0D6997 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		CB86A5AB9394DEC5B26582E5 /* KzuLiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzuLiveActivityAttributes.swift; sourceTree = "<group>"; };
+		D0E72B45B7AA152A03E91387 /* KzuTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = KzuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3827D2FE1558BB30844A74F /* ParentalAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentalAuthManager.swift; sourceTree = "<group>"; };
+		D3FB2F640E92FDF5A7B52D9A /* FlowTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTimerView.swift; sourceTree = "<group>"; };
+		D56A4862133455B7C5E56854 /* TouchInactivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchInactivityManager.swift; sourceTree = "<group>"; };
+		D671685EB87BDDF6BFF6B974 /* SampleCurriculum.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleCurriculum.json; sourceTree = "<group>"; };
+		D8A949F41159D65B9223A702 /* EarlyEdMath_GK_Mod1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EarlyEdMath_GK_Mod1.json; sourceTree = "<group>"; };
+		DA71ACD77B094F038DEDC187 /* KzuDesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzuDesignSystem.swift; sourceTree = "<group>"; };
+		E05A23C64E3DBB921BA9ACC9 /* SessionTelemetryEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTelemetryEngine.swift; sourceTree = "<group>"; };
+		E127174F4133C1212DA1CD7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E52C43D9EA2A149BBE1D0F4D /* ExplorerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerMode.swift; sourceTree = "<group>"; };
+		E793544549202881A17B079B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F0899FFBF95AE53DCBE78747 /* TEKSAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEKSAdapter.swift; sourceTree = "<group>"; };
+		FB7CE606A10663060C4242C6 /* ContentDeliveryEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDeliveryEngineTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06F22CE23EC02BBEBC3D86FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B84ABBA9B093FFA2118C285 /* DeviceActivityMonitorExtension.appex */,
+				B93E0BE9F7394177B5736FCB /* Kzu.app */,
+				1C49D5F10900B572D3C7B77D /* KzuLiveActivityExtension.appex */,
+				D0E72B45B7AA152A03E91387 /* KzuTests.xctest */,
+				AE430BB2ED703D66A0834A0D /* ShieldConfigurationExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0C7B33059888F0E6F6551488 /* GameHub */ = {
+			isa = PBXGroup;
+			children = (
+				66BD141F54A4040DE5C21AFE /* Games */,
+				30208FE743A71F8E8DC4E2C8 /* GameHubView.swift */,
+				3D22F9A285F1CC147F4DDF90 /* GameScene.swift */,
+				2340C01C870E6DFAAA982C1A /* RewardTier.swift */,
+			);
+			path = GameHub;
+			sourceTree = "<group>";
+		};
+		1BF01C75E7D93B7CC74F6026 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				AF0493F3EA82C445D133F53B /* FocusMetrics.swift */,
+				22D039B528EBB6BCA6488ABA /* ParentalDashboardView.swift */,
+				BEDB5BB7510000476B8843E2 /* StudentDashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		2E4E9265B7DB1BCC40CB129E /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		475CCCF3AA257DC64D6AEFBE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8A949F41159D65B9223A702 /* EarlyEdMath_GK_Mod1.json */,
+				D671685EB87BDDF6BFF6B974 /* SampleCurriculum.json */,
+				83F24E6044A3D53ADCC189C2 /* SampleMathCurriculum.json */,
+				B70F99BEE16000302E0BE85C /* VisionaryLessons.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		47C2F3E087CEA221E98C36F9 = {
+			isa = PBXGroup;
+			children = (
+				E531A01482983C9193E2EDE9 /* DeviceActivityMonitorExtension */,
+				BCD924EA8F9DCC392C6F75AD /* Kzu */,
+				CD863D062B61A013C04A44AB /* KzuLiveActivityExtension */,
+				C67B5124A0D6EA7C281BCE26 /* KzuTests */,
+				D5F6F10C5A3190EF642B7CE5 /* ShieldConfigurationExtension */,
+				06F22CE23EC02BBEBC3D86FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4DBB4E2EAA2E6BE76B897DB5 /* Shield */ = {
+			isa = PBXGroup;
+			children = (
+				D3827D2FE1558BB30844A74F /* ParentalAuthManager.swift */,
+				48D63CAE59EE732A5549836F /* ShieldManager.swift */,
+			);
+			path = Shield;
+			sourceTree = "<group>";
+		};
+		66BD141F54A4040DE5C21AFE /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				5705EE442CD59088B43480A0 /* PhysicsSandboxScene.swift */,
+				0478FC50D61963414AB1C887 /* RhythmFlowScene.swift */,
+				87B98FC0E97DCD07B9A91173 /* ZenGardenScene.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		79E0B8B4F7BA3215E88B5EC4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AD9BB80CB975CC350460BC16 /* AppState.swift */,
+				58754ACB219AF3D1A7879255 /* KzuActivitySchedule.swift */,
+				A5FBBA60A62716BAB60B7E59 /* KzuApp.swift */,
+				CB86A5AB9394DEC5B26582E5 /* KzuLiveActivityAttributes.swift */,
+				D56A4862133455B7C5E56854 /* TouchInactivityManager.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A60985B56C46A409FE06CD5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15876A2EBA74346C1F6300CD /* CurriculumUnit.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A68FF322EB7C1A6ECEE779EA /* ContentEngine */ = {
+			isa = PBXGroup;
+			children = (
+				A60985B56C46A409FE06CD5C /* Models */,
+				13F015EBFFD28B87ED59BE2B /* ContentDeliveryEngine.swift */,
+				B419A4F5908A232B5CCBD29D /* CurriculumOrchestrator.swift */,
+				0A9298B66A54C89AE3C5D61A /* EarlyEdAdapter.swift */,
+				E52C43D9EA2A149BBE1D0F4D /* ExplorerMode.swift */,
+				34166CD90055FDCE136105E3 /* InnovationAdapter.swift */,
+				5AD88E59295D5332BD52C349 /* OERProblemBank.swift */,
+				E05A23C64E3DBB921BA9ACC9 /* SessionTelemetryEngine.swift */,
+				8E27E9F1BCBED9BEF1CC4560 /* SupabaseContentAdapter.swift */,
+				F0899FFBF95AE53DCBE78747 /* TEKSAdapter.swift */,
+			);
+			path = ContentEngine;
+			sourceTree = "<group>";
+		};
+		A7BF5AA9C64C83293B08713A /* K2 */ = {
+			isa = PBXGroup;
+			children = (
+				368BAC2A153926321F8936CD /* FoundationalMatchingView.swift */,
+				54B2A353EC73BD8ECAC7D214 /* FoundationalPathView.swift */,
+			);
+			path = K2;
+			sourceTree = "<group>";
+		};
+		A8233866060648ABDA0A5F11 /* Upper */ = {
+			isa = PBXGroup;
+			children = (
+				41E045C6F91E624E2307CB6C /* ChapterJourneyView.swift */,
+			);
+			path = Upper;
+			sourceTree = "<group>";
+		};
+		BCD924EA8F9DCC392C6F75AD /* Kzu */ = {
+			isa = PBXGroup;
+			children = (
+				79E0B8B4F7BA3215E88B5EC4 /* App */,
+				A68FF322EB7C1A6ECEE779EA /* ContentEngine */,
+				1BF01C75E7D93B7CC74F6026 /* Dashboard */,
+				D694CE8529945FB9BD5C7C08 /* Design */,
+				0C7B33059888F0E6F6551488 /* GameHub */,
+				475CCCF3AA257DC64D6AEFBE /* Resources */,
+				4DBB4E2EAA2E6BE76B897DB5 /* Shield */,
+				C43C1FC3A729928CB59F77C6 /* Views */,
+				15288BD3C1D2719D416C20FF /* Assets.xcassets */,
+				5BF9A9D0068A7C52E3D07EE2 /* Info.plist */,
+				1A39A0A3B5E05C6219E2A19E /* Kzu.entitlements */,
+			);
+			path = Kzu;
+			sourceTree = "<group>";
+		};
+		C43C1FC3A729928CB59F77C6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E4E9265B7DB1BCC40CB129E /* Cards */,
+				A7BF5AA9C64C83293B08713A /* K2 */,
+				A8233866060648ABDA0A5F11 /* Upper */,
+				7D2183804C49FF759AFFA857 /* FlowFreezeOverlay.swift */,
+				D3FB2F640E92FDF5A7B52D9A /* FlowTimerView.swift */,
+				103B306BD57652E40E294168 /* FocusCheckOverlay.swift */,
+				80F2CB437C602468D7C37827 /* LearningBlockView.swift */,
+				27B04159A058A30FEF8C733B /* SubjectPathView.swift */,
+				21DEA6471470B0A50B201677 /* VisionaryLearningView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C67B5124A0D6EA7C281BCE26 /* KzuTests */ = {
+			isa = PBXGroup;
+			children = (
+				481ED117DF99B11A77208241 /* AppStateManagerTests.swift */,
+				FB7CE606A10663060C4242C6 /* ContentDeliveryEngineTests.swift */,
+				A84B6D6888F2EF1E538F49F1 /* FocusMetricsTests.swift */,
+				E127174F4133C1212DA1CD7A /* Info.plist */,
+			);
+			path = KzuTests;
+			sourceTree = "<group>";
+		};
+		CD863D062B61A013C04A44AB /* KzuLiveActivityExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E793544549202881A17B079B /* Info.plist */,
+				B917BDA995B45B3D14803D62 /* KzuLiveActivityBundle.swift */,
+				7E9E2E4B1026572BC677A3E3 /* KzuLiveActivityExtension.entitlements */,
+				24873C0D1E904714C0D1230D /* KzuLiveActivityWidget.swift */,
+			);
+			path = KzuLiveActivityExtension;
+			sourceTree = "<group>";
+		};
+		D5F6F10C5A3190EF642B7CE5 /* ShieldConfigurationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				12FC7327F79EA757584AA7AB /* Info.plist */,
+				514CE4AA4A27F4D85B72D88E /* ShieldConfigurationExtension.entitlements */,
+				A3A3D3E95643380D8873ADBE /* ShieldConfigurationExtension.swift */,
+			);
+			path = ShieldConfigurationExtension;
+			sourceTree = "<group>";
+		};
+		D694CE8529945FB9BD5C7C08 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				DA71ACD77B094F038DEDC187 /* KzuDesignSystem.swift */,
+				C3FAED42CCD4AA75CC0D6997 /* Transitions.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		E531A01482983C9193E2EDE9 /* DeviceActivityMonitorExtension */ = {
+			isa = PBXGroup;
+			children = (
+				580F3280B2466D418AD002FA /* DeviceActivityMonitorExtension.entitlements */,
+				7F6A8260B00266171ED8D097 /* DeviceActivityMonitorExtension.swift */,
+				17AAB9548F9023AAB3B0C090 /* Info.plist */,
+			);
+			path = DeviceActivityMonitorExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0457D6CB746D25374F50326B /* ShieldConfigurationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42CE5E89C3E6E4FE0FA19053 /* Build configuration list for PBXNativeTarget "ShieldConfigurationExtension" */;
+			buildPhases = (
+				1FB3E6F62F31F046FF8C2FCD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShieldConfigurationExtension;
+			packageProductDependencies = (
+			);
+			productName = ShieldConfigurationExtension;
+			productReference = AE430BB2ED703D66A0834A0D /* ShieldConfigurationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5AD0237A7A8C9A41A59DA440 /* KzuLiveActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EA4CF8FE6852F6E03EEF5B6 /* Build configuration list for PBXNativeTarget "KzuLiveActivityExtension" */;
+			buildPhases = (
+				53190BB04F593C3295EA36E4 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KzuLiveActivityExtension;
+			packageProductDependencies = (
+			);
+			productName = KzuLiveActivityExtension;
+			productReference = 1C49D5F10900B572D3C7B77D /* KzuLiveActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		874931EF30EE6CE792C7A856 /* Kzu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42187E6E4E7365F9C7ADB6B7 /* Build configuration list for PBXNativeTarget "Kzu" */;
+			buildPhases = (
+				3F593F2B84554AA8CFBCE8E2 /* Sources */,
+				C4BBE1DB7FAAE761A599CA2D /* Resources */,
+				C5F3A7D2E177E3DCE749492D /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				701B27CE5FAF4DDAD8A853C1 /* PBXTargetDependency */,
+				AE02C17439145D4CC1A44D7B /* PBXTargetDependency */,
+				82B281C45F14A414CBC84D8E /* PBXTargetDependency */,
+			);
+			name = Kzu;
+			packageProductDependencies = (
+			);
+			productName = Kzu;
+			productReference = B93E0BE9F7394177B5736FCB /* Kzu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9730C35525B418C24D2303B9 /* DeviceActivityMonitorExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 292144858770392F988D35B7 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */;
+			buildPhases = (
+				8630967E056EB84244390961 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceActivityMonitorExtension;
+			packageProductDependencies = (
+			);
+			productName = DeviceActivityMonitorExtension;
+			productReference = 4B84ABBA9B093FFA2118C285 /* DeviceActivityMonitorExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AA5D607CBB6CC8B2A1084F68 /* KzuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46484B04311D490A4DDC2A46 /* Build configuration list for PBXNativeTarget "KzuTests" */;
+			buildPhases = (
+				C74583862429504E2B4281F7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B741F2066C947FCC268E87FD /* PBXTargetDependency */,
+			);
+			name = KzuTests;
+			packageProductDependencies = (
+			);
+			productName = KzuTests;
+			productReference = D0E72B45B7AA152A03E91387 /* KzuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD0D0D4A9A33C6AB49BCE015 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0457D6CB746D25374F50326B = {
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						ProvisioningStyle = Automatic;
+					};
+					5AD0237A7A8C9A41A59DA440 = {
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						ProvisioningStyle = Automatic;
+					};
+					874931EF30EE6CE792C7A856 = {
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						ProvisioningStyle = Automatic;
+					};
+					9730C35525B418C24D2303B9 = {
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						ProvisioningStyle = Automatic;
+					};
+					AA5D607CBB6CC8B2A1084F68 = {
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F3B50752F6C76439B980DF6E /* Build configuration list for PBXProject "Kzu" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 47C2F3E087CEA221E98C36F9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9730C35525B418C24D2303B9 /* DeviceActivityMonitorExtension */,
+				874931EF30EE6CE792C7A856 /* Kzu */,
+				5AD0237A7A8C9A41A59DA440 /* KzuLiveActivityExtension */,
+				AA5D607CBB6CC8B2A1084F68 /* KzuTests */,
+				0457D6CB746D25374F50326B /* ShieldConfigurationExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4BBE1DB7FAAE761A599CA2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE207DAEE5B33C8CD91AF18F /* Assets.xcassets in Resources */,
+				2E7800E237006A222FB00B53 /* EarlyEdMath_GK_Mod1.json in Resources */,
+				7FD02771440A6B48E3893E54 /* SampleCurriculum.json in Resources */,
+				CCC22C3C23AD1063AE601B7B /* SampleMathCurriculum.json in Resources */,
+				BE2FE01FBD175E7B92FC5AB6 /* VisionaryLessons.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FB3E6F62F31F046FF8C2FCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93EAC2C78B47F53ED93EE9EF /* ShieldConfigurationExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F593F2B84554AA8CFBCE8E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB79A0E2C84AA5E822CACA1 /* AppState.swift in Sources */,
+				A6C2BDE7F5CB12E4DF364BCD /* ChapterJourneyView.swift in Sources */,
+				667CC84C6094734CD4C3E9F3 /* ContentDeliveryEngine.swift in Sources */,
+				73486624A80BF42A284264CB /* CurriculumOrchestrator.swift in Sources */,
+				64F425AA00044C3223293892 /* CurriculumUnit.swift in Sources */,
+				9D3EFD485A4731172F4944B6 /* EarlyEdAdapter.swift in Sources */,
+				75739EBECFC0804C8236A5F6 /* ExplorerMode.swift in Sources */,
+				D7E761AC78D8AFA432A2818A /* FlowFreezeOverlay.swift in Sources */,
+				53B0B7B53719EA499943417B /* FlowTimerView.swift in Sources */,
+				9DB494F2202B7F9C2B816E03 /* FocusCheckOverlay.swift in Sources */,
+				036FE8AD88655B44BCBE5E89 /* FocusMetrics.swift in Sources */,
+				29B6DD1076D3CCEE3419740D /* FoundationalMatchingView.swift in Sources */,
+				28C4569ACDF29827462FC542 /* FoundationalPathView.swift in Sources */,
+				7A523A0F52C79F4818443762 /* GameHubView.swift in Sources */,
+				947F0DE847F120A3FFDC9124 /* GameScene.swift in Sources */,
+				A4EF6A4FE5374B708EF2A6AB /* InnovationAdapter.swift in Sources */,
+				C331F669E021B2BDFBFD9A37 /* KzuActivitySchedule.swift in Sources */,
+				32CE310A2B9F4DF305C81683 /* KzuApp.swift in Sources */,
+				32687CB42A8105328DC444C3 /* KzuDesignSystem.swift in Sources */,
+				FA0BAA417C55FE6C12117029 /* KzuLiveActivityAttributes.swift in Sources */,
+				C53D1D4F3F8B2E7ECD0B6151 /* LearningBlockView.swift in Sources */,
+				927F6F3461E210790D6F7AEA /* OERProblemBank.swift in Sources */,
+				B3D38E02B758433BA88263E2 /* ParentalAuthManager.swift in Sources */,
+				1FFC27DAC9A23722EFB1B806 /* ParentalDashboardView.swift in Sources */,
+				101EAE5290123697CE9B5FD3 /* PhysicsSandboxScene.swift in Sources */,
+				388559FC4E4919D88C7ADC0B /* RewardTier.swift in Sources */,
+				CE3DBDB06CF2BE14B14A6C47 /* RhythmFlowScene.swift in Sources */,
+				895D5E7F34F7631048C555A6 /* SessionTelemetryEngine.swift in Sources */,
+				FAB2FBBB5B055DD104847B98 /* ShieldManager.swift in Sources */,
+				BEA7CE249F419126B2066827 /* StudentDashboardView.swift in Sources */,
+				AAE00D08521511A4F2CF1B6E /* SubjectPathView.swift in Sources */,
+				4FB3F859C687284D52792615 /* SupabaseContentAdapter.swift in Sources */,
+				DC4DA6C27BDCA9161D1D8A43 /* TEKSAdapter.swift in Sources */,
+				2482785D3E86300C02DEA3AE /* TouchInactivityManager.swift in Sources */,
+				9D72D68470D1510056967D61 /* Transitions.swift in Sources */,
+				2F2E38CBE350AA51B8B339C3 /* VisionaryLearningView.swift in Sources */,
+				B8F3395C8E1B0206B6116578 /* ZenGardenScene.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53190BB04F593C3295EA36E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				379711E4F4AA4784B1E06C0B /* KzuLiveActivityAttributes.swift in Sources */,
+				05911E278219E3054D0AF640 /* KzuLiveActivityBundle.swift in Sources */,
+				BB08A6B88CF0C59F706EFE53 /* KzuLiveActivityWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8630967E056EB84244390961 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ADD762BC0E07F914CF33CBE /* DeviceActivityMonitorExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74583862429504E2B4281F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1F2A24892C252AC0E2A06C /* AppStateManagerTests.swift in Sources */,
+				130B32F20A457D75B523DE01 /* ContentDeliveryEngineTests.swift in Sources */,
+				6BC5648171C8E5697D7EF74F /* FocusMetricsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		701B27CE5FAF4DDAD8A853C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9730C35525B418C24D2303B9 /* DeviceActivityMonitorExtension */;
+			targetProxy = 0C4868C7A3376A33930A13D3 /* PBXContainerItemProxy */;
+		};
+		82B281C45F14A414CBC84D8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD0237A7A8C9A41A59DA440 /* KzuLiveActivityExtension */;
+			targetProxy = BD1C4909FB2853C53C2FC39A /* PBXContainerItemProxy */;
+		};
+		AE02C17439145D4CC1A44D7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0457D6CB746D25374F50326B /* ShieldConfigurationExtension */;
+			targetProxy = E6A98EEEDA2FEC444659D379 /* PBXContainerItemProxy */;
+		};
+		B741F2066C947FCC268E87FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 874931EF30EE6CE792C7A856 /* Kzu */;
+			targetProxy = C5BEC0F330743BAA961BC91D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2DC29E03CDE4AEEE9DB0763B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kzu.app.device-activity-monitor";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		38DE428D45A1CD77EC556A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Kzu/Kzu.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Kzu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzu.app;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		41DE1908595C29A184677C97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KzuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzu.app.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kzu.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Kzu";
+			};
+			name = Release;
+		};
+		474690F19A5A4068A183B7EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = KzuLiveActivityExtension/KzuLiveActivityExtension.entitlements;
+				INFOPLIST_FILE = KzuLiveActivityExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kzu.app.live-activity";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		5D998658EF52257EE5EB78AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A49DF3C86A60EF9B8647A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kzu.app.device-activity-monitor";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9045E5469DAC502924126A74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KzuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzu.app.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kzu.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Kzu";
+			};
+			name = Debug;
+		};
+		9B4A7B87EBE9A1C139794D42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = KzuLiveActivityExtension/KzuLiveActivityExtension.entitlements;
+				INFOPLIST_FILE = KzuLiveActivityExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kzu.app.live-activity";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		A2F6D0A5A5C0ACA0086F9BE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements;
+				INFOPLIST_FILE = ShieldConfigurationExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kzu.app.shield-configuration";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC96EDF491296C63C79FD24F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements;
+				INFOPLIST_FILE = ShieldConfigurationExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kzu.app.shield-configuration";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC02588FE29BA2921C5F86C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Kzu/Kzu.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Kzu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzu.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		EEE0761E060BFBAB684185FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1EA4CF8FE6852F6E03EEF5B6 /* Build configuration list for PBXNativeTarget "KzuLiveActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474690F19A5A4068A183B7EE /* Debug */,
+				9B4A7B87EBE9A1C139794D42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		292144858770392F988D35B7 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DC29E03CDE4AEEE9DB0763B /* Debug */,
+				7A49DF3C86A60EF9B8647A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		42187E6E4E7365F9C7ADB6B7 /* Build configuration list for PBXNativeTarget "Kzu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38DE428D45A1CD77EC556A06 /* Debug */,
+				EC02588FE29BA2921C5F86C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		42CE5E89C3E6E4FE0FA19053 /* Build configuration list for PBXNativeTarget "ShieldConfigurationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC96EDF491296C63C79FD24F /* Debug */,
+				A2F6D0A5A5C0ACA0086F9BE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		46484B04311D490A4DDC2A46 /* Build configuration list for PBXNativeTarget "KzuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9045E5469DAC502924126A74 /* Debug */,
+				41DE1908595C29A184677C97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F3B50752F6C76439B980DF6E /* Build configuration list for PBXProject "Kzu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE0761E060BFBAB684185FD /* Debug */,
+				5D998658EF52257EE5EB78AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD0D0D4A9A33C6AB49BCE015 /* Project object */;
+}

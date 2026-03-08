@@ -1,0 +1,103 @@
+{
+  "unitId": "math-k-numsense-01",
+  "standard": "CCSS.MATH.K.CC.A.1",
+  "gradeRange": [0, 2],
+  "subject": "math",
+  "title": "Number Sense: Counting & Patterns",
+  "description": "Build strong number sense through counting, comparing, and recognizing patterns.",
+  "lessons": [
+    {
+      "lessonId": "ms-01",
+      "type": "counting_exercise",
+      "content": {
+        "prompt": "How many apples do you see?",
+        "instruction": "Count each apple carefully.",
+        "options": ["3", "4", "5"],
+        "correctIndex": 1,
+        "mediaAsset": "counting_apples_4"
+      }
+    },
+    {
+      "lessonId": "ms-02",
+      "type": "counting_exercise",
+      "content": {
+        "prompt": "How many stars do you see?",
+        "instruction": "Count each star one by one.",
+        "options": ["5", "6", "7"],
+        "correctIndex": 0,
+        "mediaAsset": "counting_stars_5"
+      }
+    },
+    {
+      "lessonId": "ms-03",
+      "type": "number_sense",
+      "content": {
+        "prompt": "Which number comes after 7?",
+        "instruction": "Think about counting up!",
+        "options": ["6", "8", "9"],
+        "correctIndex": 1,
+        "mediaAsset": "number_line_animation"
+      }
+    },
+    {
+      "lessonId": "ms-04",
+      "type": "number_sense",
+      "content": {
+        "prompt": "Which number is bigger?",
+        "instruction": "Compare the two numbers.",
+        "options": ["3", "9"],
+        "correctIndex": 1
+      }
+    },
+    {
+      "lessonId": "ms-05",
+      "type": "number_sense",
+      "content": {
+        "prompt": "What is 2 + 3?",
+        "instruction": "Add the numbers together.",
+        "options": ["4", "5", "6"],
+        "correctIndex": 1
+      }
+    },
+    {
+      "lessonId": "ms-06",
+      "type": "counting_exercise",
+      "content": {
+        "prompt": "How many flowers do you see?",
+        "instruction": "Count each flower!",
+        "options": ["2", "3", "4"],
+        "correctIndex": 2,
+        "mediaAsset": "counting_flowers_4"
+      }
+    },
+    {
+      "lessonId": "ms-07",
+      "type": "number_sense",
+      "content": {
+        "prompt": "What is 5 - 2?",
+        "instruction": "Take away 2 from 5.",
+        "options": ["2", "3", "4"],
+        "correctIndex": 1
+      }
+    },
+    {
+      "lessonId": "ms-08",
+      "type": "number_sense",
+      "content": {
+        "prompt": "What number is missing? 1, 2, __, 4, 5",
+        "instruction": "Find the missing number in the pattern.",
+        "options": ["0", "3", "6"],
+        "correctIndex": 1
+      }
+    }
+  ],
+  "explorerContent": {
+    "type": "pattern_game",
+    "title": "Pattern Detective",
+    "instruction": "Can you find what comes next in the pattern?",
+    "payload": {
+      "sequence": [2, 4, 6, 8],
+      "nextExpected": 10
+    }
+  }
+}

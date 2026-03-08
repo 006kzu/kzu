@@ -51,6 +51,7 @@ struct GameDefinition: Identifiable {
 struct GameHubView: View {
     @Bindable var appState: AppStateManager
     let rewardTier: RewardTier
+    let onExit: () -> Void
 
     @State private var selectedGame: GameDefinition? = nil
     @State private var isShowingCurtain = true
@@ -61,11 +62,46 @@ struct GameHubView: View {
             Color.kzuDeepNavy.ignoresSafeArea()
 
             VStack(spacing: 0) {
+                // Back to dashboard
+                HStack {
+                    Button {
+                        onExit()
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 14, weight: .semibold))
+                            Text("Dashboard")
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                        }
+                        .foregroundStyle(Color.kzuIvory.opacity(0.7))
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
+
                 // Header with timer
                 gameHubHeader
-                    .padding(.top, 16)
 
                 if selectedGame != nil {
+                    // Back to game selection
+                    HStack {
+                        Button {
+                            withAnimation { selectedGame = nil }
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: "chevron.left")
+                                    .font(.system(size: 14, weight: .semibold))
+                                Text("Switch Game")
+                                    .font(.system(size: 14, weight: .medium, design: .rounded))
+                            }
+                            .foregroundStyle(Color.kzuIvory.opacity(0.7))
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
+
                     // Active game view
                     activeGameView
                         .transition(.opacity)

@@ -2,6 +2,7 @@
 // Kzu — Curriculum ingest, serve, and score engine
 
 import Foundation
+import Observation
 
 // MARK: - Content Delivery Engine
 
@@ -18,28 +19,28 @@ final class ContentDeliveryEngine {
     private var answers: [AnswerResult] = []
     private var lessonStartTime: Date = .now
     private var attemptCounts: [String: Int] = [:]
+    
+    // MARK: Internal services
+    private let orchestrator = CurriculumOrchestrator()
 
     // MARK: - Load Curriculum
 
-    /// Loads a curriculum unit for the given grade and subject from bundled JSON.
-    /// For MVP, files are bundled in the app. Later, this becomes an API call.
-    func loadUnit(for grade: Int, subject: Subject) -> CurriculumUnit? {
-        let gradeBand: String = grade <= 2 ? "foundational" : "exploration"
-        let filename = "\(subject.rawValue)_\(gradeBand)_grade\(grade)"
-
-        guard let url = Bundle.main.url(forResource: filename, withExtension: "json"),
-              let data = try? Data(contentsOf: url) else {
-            // Fallback: try loading the sample curriculum
-            return loadSampleCurriculum(subject: subject, gradeBand: gradeBand)
+    /// Loads a curriculum unit for the given grade and subject from the CurriculumOrchestrator.
+    func loadUnit(for grade: Int, subject: Subject) async -> CurriculumUnit? {
+        // Use the centralized Orchestrator which knows about TEKS, EarlyEd, and Visionary
+        if let unit = await orchestrator.fetchUnit(for: grade, subject: subject) {
+            return unit
         }
-
-        let decoder = JSONDecoder()
-        return try? decoder.decode(CurriculumUnit.self, from: data)
+        
+        // Final fallback: bundled sample curriculum (if orchestrator fails completely)
+        let gradeBand: String = grade <= 2 ? "foundational" : "exploration"
+        return loadSampleCurriculum(subject: subject, gradeBand: gradeBand)
     }
 
     /// Loads the bundled sample curriculum as a fallback
     private func loadSampleCurriculum(subject: Subject, gradeBand: String) -> CurriculumUnit? {
-        guard let url = Bundle.main.url(forResource: "SampleCurriculum", withExtension: "json"),
+        let filename = subject == .math ? "SampleMathCurriculum" : "SampleCurriculum"
+        guard let url = Bundle.main.url(forResource: filename, withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
             return nil
         }
@@ -103,6 +104,32 @@ final class ContentDeliveryEngine {
         } else {
             isCorrect = true  // Non-graded content
         }
+
+        let result = AnswerResult(
+            isCorrect: isCorrect,
+            lessonId: lesson.lessonId,
+            timeSpent: timeSpent,
+            attemptNumber: attemptNumber
+        )
+
+        answers.append(result)
+
+        if isCorrect {
+            advanceToNextLesson()
+        }
+
+        return result
+    }
+
+    /// Submits a custom interaction result directly computed by the UI (e.g. matching)
+    func submitCustomResult(isCorrect: Bool) -> AnswerResult {
+        guard let lesson = currentLesson else {
+            return AnswerResult(isCorrect: false, lessonId: "", timeSpent: 0, attemptNumber: 0)
+        }
+
+        let timeSpent = Date().timeIntervalSince(lessonStartTime)
+        let attemptNumber = (attemptCounts[lesson.lessonId] ?? 0) + 1
+        attemptCounts[lesson.lessonId] = attemptNumber
 
         let result = AnswerResult(
             isCorrect: isCorrect,
@@ -220,6 +247,16 @@ final class ContentDeliveryEngine {
 
     func enterExplorerMode() {
         isInExplorerMode = true
+    }
+
+    /// Resets the engine for the next lesson run within the same unit.
+    func resetForNextLesson() {
+        currentLessonIndex = 0
+        isInExplorerMode = false
+        answers = []
+        attemptCounts = [:]
+        sessionScore = nil
+        lessonStartTime = .now
     }
 
     // MARK: - Scoring

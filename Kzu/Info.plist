@@ -49,5 +49,8 @@
 	</array>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Kzu uses Face ID to protect the Parent Dashboard.</string>
+	<!-- ActivityKit: required to request Live Activities from the app -->
+	<key>NSSupportsLiveActivities</key>
+	<true/>
 </dict>
 </plist>

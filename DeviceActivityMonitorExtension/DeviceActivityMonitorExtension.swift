@@ -18,7 +18,9 @@ import Foundation
 /// 3. Detect when the app has been backgrounded > 10s (reset penalty)
 class KzuDeviceActivityMonitor: DeviceActivityMonitor {
 
-    private let store = ManagedSettingsStore()
+    /// Shared named store — must match the main app's store name so both
+    /// targets read/write the same underlying shield data.
+    private let store = ManagedSettingsStore(named: .init("kzu.shields"))
     private let sharedDefaults = UserDefaults(suiteName: "group.com.006kzu.shared")
 
     // MARK: - Interval Lifecycle
@@ -27,6 +29,9 @@ class KzuDeviceActivityMonitor: DeviceActivityMonitor {
     /// This corresponds to the start of a LEARNING_BLOCK.
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
+
+        // Don't apply shields if the session was ended by Face ID
+        guard sharedDefaults?.bool(forKey: "sessionEnded") != true else { return }
 
         // Ensure shields are active
         applyShieldsFromCache()
@@ -99,6 +104,7 @@ class KzuDeviceActivityMonitor: DeviceActivityMonitor {
         store.shield.applications = nil
         store.shield.applicationCategories = nil
         store.shield.webDomains = nil
+        store.clearAllSettings()
         sharedDefaults?.set(false, forKey: "shieldsActive")
     }
 
@@ -107,6 +113,9 @@ class KzuDeviceActivityMonitor: DeviceActivityMonitor {
     /// Applies the timer reset penalty.
     /// This writes a flag that the main app reads on resume.
     private func applyResetPenalty() {
+        // Don't re-apply shields if the session was ended by Face ID
+        guard sharedDefaults?.bool(forKey: "sessionEnded") != true else { return }
+
         sharedDefaults?.set(true, forKey: "resetPending")
         sharedDefaults?.set(Date().timeIntervalSince1970, forKey: "resetTimestamp")
 

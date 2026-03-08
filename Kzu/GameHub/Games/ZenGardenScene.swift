@@ -2,6 +2,7 @@
 // Kzu — Generative art mini-game: "Digital Zen"
 
 import SpriteKit
+import SwiftUI
 
 // MARK: - Zen Garden Scene
 
@@ -214,7 +215,7 @@ class ZenGardenScene: KzuGameScene {
         enumerateChildNodes(withName: "//") { node, _ in
             if let emitter = node as? SKEmitterNode {
                 emitter.run(SKAction.customAction(withDuration: 10) { node, elapsed in
-                    (node as? SKEmitterNode)?.particleBirthRate = max(0.5, 2 - Float(elapsed) * 0.15)
+                    (node as? SKEmitterNode)?.particleBirthRate = CGFloat(max(0.5, 2 - Float(elapsed) * 0.15))
                 })
             }
         }

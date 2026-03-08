@@ -2,6 +2,7 @@
 // Kzu — Physics playground mini-game: gravity, bounce, flow
 
 import SpriteKit
+import SwiftUI
 
 // MARK: - Physics Sandbox Scene
 

@@ -30,8 +30,8 @@ struct FoundationalPathView: View {
             // Main prompt
             GlassCard {
                 VStack(spacing: 20) {
-                    // Media placeholder (SpriteKit animation would go here)
-                    if let mediaAsset = lesson.content.mediaAsset {
+                    // Visual media for lesson
+                    if let mediaAsset = lesson.content.mediaAsset ?? lesson.content.targetObject {
                         ZStack {
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(
@@ -44,12 +44,9 @@ struct FoundationalPathView: View {
                                         endPoint: .bottomTrailing
                                     )
                                 )
-                                .frame(height: 140)
+                                .frame(minHeight: 120)
 
-                            // Letter/number display
-                            Text(extractDisplayChar(from: mediaAsset))
-                                .font(.system(size: 80, weight: .bold, design: .rounded))
-                                .foregroundStyle(Color.kzuDeepNavy)
+                            mediaContent(for: mediaAsset)
                         }
                     }
 
@@ -133,15 +130,72 @@ struct FoundationalPathView: View {
         )
     }
 
-    // MARK: - Helpers
+    // MARK: - Media Content
 
-    private func extractDisplayChar(from assetName: String) -> String {
-        // Extract letter from asset names like "letter_a_animation"
-        let parts = assetName.split(separator: "_")
-        if parts.count >= 2, parts[0] == "letter" {
-            return String(parts[1]).uppercased()
+    @ViewBuilder
+    private func mediaContent(for assetName: String) -> some View {
+        if assetName.hasPrefix("counting_") {
+            // e.g. "counting_apples_4" → show 4 apple emojis
+            countingVisual(for: assetName)
+        } else if assetName.hasPrefix("letter_") {
+            // e.g. "letter_a_animation" → show large letter
+            let parts = assetName.split(separator: "_")
+            let letter = parts.count >= 2 ? String(parts[1]).uppercased() : "?"
+            Text(letter)
+                .font(.system(size: 80, weight: .bold, design: .rounded))
+                .foregroundStyle(Color.kzuDeepNavy)
+        } else if assetName.hasPrefix("number_line") {
+            // Number line visual
+            HStack(spacing: 8) {
+                ForEach(1...10, id: \.self) { n in
+                    Text("\(n)")
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color.kzuDeepNavy)
+                        .frame(width: 28, height: 28)
+                        .background(
+                            Circle()
+                                .fill(Color.kzuFlowBlue.opacity(n == 8 ? 0.3 : 0.1))
+                        )
+                }
+            }
+            .padding(.vertical, 12)
+        } else {
+            Text("📚")
+                .font(.system(size: 56))
         }
-        return "?"
+    }
+
+    private func countingVisual(for assetName: String) -> some View {
+        // Parse "counting_apples_4" → emoji: 🍎, count: 4
+        let parts = assetName.split(separator: "_")
+        let count = parts.last.flatMap { Int($0) } ?? 3
+        let itemName = parts.count >= 3 ? String(parts[1]) : "objects"
+
+        let emoji: String = {
+            switch itemName {
+            case "apples": return "🍎"
+            case "stars": return "⭐"
+            case "hearts": return "❤️"
+            case "fish": return "🐟"
+            case "balls": return "⚽"
+            case "flowers": return "🌸"
+            case "birds": return "🐦"
+            case "cats": return "🐱"
+            case "dogs": return "🐶"
+            default: return "🔵"
+            }
+        }()
+
+        return VStack(spacing: 8) {
+            // Show emoji grid
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: min(count, 5)), spacing: 12) {
+                ForEach(0..<count, id: \.self) { _ in
+                    Text(emoji)
+                        .font(.system(size: 44))
+                }
+            }
+            .padding()
+        }
     }
 }
 

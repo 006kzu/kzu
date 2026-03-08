@@ -58,14 +58,17 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         CODE_SIGN_ENTITLEMENTS: Kzu/Kzu.entitlements
+        VALIDATE_PRODUCT: false
       configs:
         Debug:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
-    entitlements:
-      path: Kzu/Kzu.entitlements
+
     dependencies:
       - target: DeviceActivityMonitorExtension
       - target: ShieldConfigurationExtension
+      - target: KzuLiveActivityExtension
+        embed: true
+        codeSign: true
     scheme:
       testTargets:
         - KzuTests
@@ -96,6 +99,23 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.kzu.app.shield-configuration
         CODE_SIGN_ENTITLEMENTS: ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements
         SKIP_INSTALL: true
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
+
+  # ── Live Activity Widget Extension ──
+  KzuLiveActivityExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: KzuLiveActivityExtension
+      # Shared model compiled into both app and extension
+      - path: Kzu/App/KzuLiveActivityAttributes.swift
+    settings:
+      base:
+        INFOPLIST_FILE: KzuLiveActivityExtension/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.kzu.app.live-activity
+        CODE_SIGN_ENTITLEMENTS: KzuLiveActivityExtension/KzuLiveActivityExtension.entitlements
+        SKIP_INSTALL: true
+        VALIDATE_PRODUCT: false
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
 
   # ── Unit Tests ──

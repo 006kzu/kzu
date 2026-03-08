@@ -10,9 +10,10 @@ import Charts
 /// Protected behind FaceID/passcode. Shows Focus Growth charts,
 /// session breakdowns, and accuracy trends.
 struct ParentalDashboardView: View {
+    @Bindable var authManager: ParentalAuthManager
+    
     @Query(sort: \FocusSession.date, order: .reverse) private var sessions: [FocusSession]
     @State private var selectedTimeRange: TimeRange = .week
-    @State private var isAuthenticated = false
 
     enum TimeRange: String, CaseIterable {
         case week = "7 Days"
@@ -36,44 +37,11 @@ struct ParentalDashboardView: View {
 
     var body: some View {
         NavigationStack {
-            if isAuthenticated {
-                dashboardContent
-            } else {
-                authGateView
-            }
+            dashboardContent
         }
     }
 
-    // MARK: - Auth Gate
 
-    private var authGateView: some View {
-        ZStack {
-            Color.kzuIvory.ignoresSafeArea()
-
-            VStack(spacing: 24) {
-                Image(systemName: "faceid")
-                    .font(.system(size: 48))
-                    .foregroundStyle(Color.kzuDeepNavy)
-
-                Text("Parent Access")
-                    .font(KzuTypography.dashboardHeadline)
-                    .foregroundStyle(Color.kzuDeepNavy)
-
-                Text("Authenticate to view your child's focus metrics.")
-                    .font(KzuTypography.journeyCaption)
-                    .foregroundStyle(Color.kzuSoftNavy)
-                    .multilineTextAlignment(.center)
-
-                NeoSkeuomorphicButton("Authenticate", icon: "lock.open") {
-                    // In production: LAContext biometric check
-                    isAuthenticated = true
-                }
-            }
-            .padding(40)
-        }
-    }
-
-    // MARK: - Dashboard Content
 
     private var dashboardContent: some View {
         ScrollView {
@@ -103,6 +71,10 @@ struct ParentalDashboardView: View {
                 accuracySection
                     .padding(.horizontal)
 
+                // App Settings
+                settingsSection
+                    .padding(.horizontal)
+
                 Spacer(minLength: 40)
             }
             .padding(.top, 16)
@@ -110,6 +82,15 @@ struct ParentalDashboardView: View {
         .background(Color.kzuIvory.ignoresSafeArea())
         .navigationTitle("Focus Growth")
         .navigationBarTitleDisplayMode(.large)
+        .familyActivityPicker(
+            isPresented: $authManager.isShowingPicker,
+            selection: $authManager.selectedApps
+        )
+        .onChange(of: authManager.isShowingPicker) { oldValue, newValue in
+            if oldValue == true && newValue == false {
+                authManager.saveSelection()
+            }
+        }
     }
 
     // MARK: - Hero Metrics
@@ -297,6 +278,26 @@ struct ParentalDashboardView: View {
                                 .foregroundStyle(Color.kzuSoftNavy)
                         }
                     }
+                }
+            }
+        }
+    }
+
+    // MARK: - Settings Section
+
+    private var settingsSection: some View {
+        GlassCard {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("App Limits")
+                    .font(KzuTypography.dashboardHeadline)
+                    .foregroundStyle(Color.kzuDeepNavy)
+
+                Text("Select the games and social media apps that should be locked while your child is focusing.")
+                    .font(KzuTypography.journeyCaption)
+                    .foregroundStyle(Color.kzuSoftNavy)
+
+                NeoSkeuomorphicButton("Choose Apps to Lock", icon: "app.badge.checkmark", isPrimary: false) {
+                    authManager.showAppPicker()
                 }
             }
         }
